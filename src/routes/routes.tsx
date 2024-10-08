@@ -10,6 +10,10 @@ export const routes: RouteObject[] = [
         errorElement: <ErrorPage />,
         children: [
             {
+                index: true,
+                element: <div>home</div>,
+            },
+            {
                 path: 'fat-loss-record',
                 element: <FatLossRecord />,
             },
