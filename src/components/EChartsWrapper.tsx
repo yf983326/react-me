@@ -16,13 +16,13 @@ type Props = echarts.EChartsInitOpts & {
     // 是否显示加载动画
     loading?: boolean;
     // 事件
-    onEvents: Record<string, any>;
+    onEvents?: Record<string, any>;
     // 样式
     style?: React.CSSProperties;
 };
 
 // 封装 ECharts 组件
-const EChartsWrapper = ({
+export default function EChartsWrapper({
     theme = 'light',
     renderer = 'canvas',
 
@@ -33,7 +33,7 @@ const EChartsWrapper = ({
     loading = true,
     style = { height: 400, width: '100%' },
     onEvents = {},
-}: Props) => {
+}: Props) {
     // 引用图表 DOM 节点
     const chartRef = useRef<HTMLDivElement>(null);
     // 引用 ECharts 实例
@@ -41,7 +41,6 @@ const EChartsWrapper = ({
 
     // 初始化图表
     const initChart = () => {
-        console.log('初始化图表');
         if (chartRef.current) {
             // 1. 初始化 ECharts 实例
             const chartInstance = echarts.init(chartRef.current, theme, { renderer });
@@ -92,6 +91,4 @@ const EChartsWrapper = ({
             {loading && <div>Loading...</div>}
         </div>
     );
-};
-
-export default EChartsWrapper;
+}
