@@ -5,7 +5,7 @@ import FatLossRecord from '@/pages/FatLossRecord.tsx';
 
 export const routes: RouteObject[] = [
     {
-        path: '/',
+        path: '/react-me',
         element: <Layout />,
         errorElement: <ErrorPage />,
         children: [
